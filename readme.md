@@ -26,8 +26,8 @@ sites:                                      #add the urls dev.streamdfiuse.____ 
     - map: dev.streamfiuse.web
       to: /home/vagrant/code/web/public
 
-databases:
-    - streamTinder
+#databases:
+    #- streamTinder
 
 features:
     - mysql: true
