@@ -17,8 +17,8 @@ folders:
     - map: ~/Documents/laravel/code
       to: /home/vagrant/code
 
-sites:
-    - map: dev.streamfiuse.core
+sites:                                      #add the urls dev.streamdfiuse.____ under the ip 192.168.10.10 in /etc/hosts
+    - map: dev.streamfiuse.core 
       to: /home/vagrant/code/core/public
     - map: dev.streamfiuse.web
       to: /home/vagrant/code/web/public
