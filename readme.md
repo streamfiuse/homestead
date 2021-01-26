@@ -1,45 +1,49 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-homestead.svg"></p>
+# Homestead box of streamfiuse 
 
-<p align="center">
-    <a href="https://github.com/laravel/homestead/actions">
-        <img src="https://github.com/laravel/homestead/workflows/tests/badge.svg" alt="Build Status">
-    </a>
-    <a href="https://packagist.org/packages/laravel/homestead">
-        <img src="https://img.shields.io/packagist/dt/laravel/homestead" alt="Total Downloads">
-    </a>
-    <a href="https://packagist.org/packages/laravel/homestead">
-        <img src="https://img.shields.io/packagist/v/laravel/homestead" alt="Latest Stable Version">
-    </a>
-    <a href="https://packagist.org/packages/laravel/homestead">
-        <img src="https://img.shields.io/packagist/l/laravel/homestead" alt="License">
-    </a>
-</p>
+## Mac - Homestead.yaml
+```yaml
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 2
+provider: virtualbox
 
-## Introduction
+authorize: ~/.ssh/id_rsa.pub
 
-Laravel Homestead is an official, pre-packaged Vagrant box that provides you a wonderful development environment without requiring you to install PHP, a web server, and any other server software on your local machine. No more worrying about messing up your operating system! Vagrant boxes are completely disposable. If something goes wrong, you can destroy and re-create the box in minutes!
+keys:
+    - ~/.ssh/id_rsa
 
-Homestead runs on any Windows, Mac, or Linux system, and includes the Nginx web server, PHP 8.0, MySQL, Postgres, Redis, Memcached, Node, and all of the other goodies you need to develop amazing Laravel applications.
+folders:
+    - map: ~/Documents/laravel/code
+      to: /home/vagrant/code
 
-Official documentation [is located here](https://laravel.com/docs/homestead).
+sites:
+    - map: dev.streamfiuse.core
+      to: /home/vagrant/code/core/public
+    - map: dev.streamfiuse.web
+      to: /home/vagrant/code/web/public
 
-Ubuntu 20.04 can be found in the branch `20.04` 
+databases:
+    - streamTinder
 
-| Ubuntu LTS | Settler Version | Homestead Version | Branch      | Status
-| -----------| -----------     | -----------       | ----------- | -----------
-| 20.04      | TBD             | TBD               | `main`      | Development/Unstable
-| 20.04      | 10.x            | 11.x              | `20.04`     | Supported
-| 18.04      | 9.x             | 10.x              | `release`   | No Longer Supported
+features:
+    - mysql: true
+    - mariadb: false
+    - postgresql: false
+    - ohmyzsh: true
+    - webdriver: false
 
-## Developing Homestead
+#services:
+#    - enabled:
+#        - "postgresql@12-main"
+#    - disabled:
+#        - "postgresql@11-main"
 
-To keep any in-development changes separate from other Homestead installations, create a new project and install
-Homestead from composer, forcing it to use a git checkout.
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
 
 ```
-$ mkdir homestead && \
-    cd homestead && \
-    composer require --prefer-source laravel/homestead:dev-main
-```
-
-After it's complete, `vendor/laravel/homestead` will be a git checkout and can be used normally.
