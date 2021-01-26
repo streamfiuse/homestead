@@ -17,7 +17,7 @@ folders:
     - map: ~/Documents/laravel/code
       to: /home/vagrant/code
 
-sites:                                      #add the urls dev.streamdfiuse.____ under the ip 192.168.10.10 in /etc/hosts
+sites:                                      #add the urls dev.streamdfiuse.____ under the ip 127.0.0.1 in /etc/hosts
     - map: dev.streamfiuse.core 
       to: /home/vagrant/code/core/public
     - map: dev.streamfiuse.web
@@ -45,5 +45,11 @@ features:
 #     - send: 7777
 #       to: 777
 #       protocol: udp
-
+```
+/etc/hosts
+```
+#### HOMESTEAD-SITES-BEGIN
+127.0.0.1       dev.streamfiuse.web
+127.0.0.1       dev.streamfiuse.core
+#### HOMESTEAD-SITES-END
 ```
