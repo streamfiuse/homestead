@@ -1,5 +1,8 @@
 # Homestead box of streamfiuse 
 
+## Requirements
+-  VirtualBox https://www.virtualbox.org/wiki/Downloads
+
 ## Mac - Homestead.yaml
 ```yaml
 ---
